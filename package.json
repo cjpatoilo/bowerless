@@ -1,6 +1,6 @@
 {
 	"name": "bowerless",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Generate bundles from npm dependencies.",
 	"homepage": "http://cjpatoilo.com/bowerless",
 	"repository": "cjpatoilo/bowerless",
@@ -14,23 +14,32 @@
 		"src/version.js"
 	],
 	"keywords": [
+		"🐥",
 		"-S",
 		"--save",
 		"asset",
 		"assets",
 		"automation",
+		"bower",
 		"bundle",
 		"bundles",
 		"css",
 		"dependency",
 		"dependencies",
 		"frontend",
+		"generator",
 		"javascript",
 		"js",
 		"npm",
+		"package",
+		"package manager",
 		"production",
 		"style",
-		"styles"
+		"styles",
+		"vendor",
+		"vendors",
+		"web",
+		"website"
 	],
 	"ignore": [
 		".appveyor.yml",

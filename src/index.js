@@ -3,6 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const shelljs = require('shelljs')
+const mkdirp = require('mkdirp')
 const concat = require('concat-files')
 const globbies = require('globbies')
 const cache = path.resolve(__dirname, '../.cache')
@@ -26,7 +27,7 @@ function bowerless (argv) {
 	if (fs.existsSync(`${directory}/bundle.min.js`)) fs.unlinkSync(`${directory}/bundle.min.js`)
 	if (fs.existsSync(`${directory}/bundle.min.css`)) fs.unlinkSync(`${directory}/bundle.min.css`)
 
-	if (!fs.existsSync(directory)) fs.mkdirSync(directory)
+	if (!fs.existsSync(directory)) mkdirp.sync(directory)
 	globbies(path.resolve(`${cache}/node_modules/**/package.json`), file => {
 		let main = `${path.dirname(file)}/${require(file).main}`
 		let bundle = `${directory}/bundle.min${path.extname(main)}`

@@ -42,6 +42,7 @@
 	"dependencies": {
 		"concat-files": "^0.1.1",
 		"globbies": "^0.0.3",
+		"mkdirp": "^0.5.1",
 		"shelljs": "^0.7.5"
 	},
 	"devDependencies": {

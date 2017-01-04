@@ -2,6 +2,7 @@
 
 > Generate bundles from npm dependencies.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e9961d836078409c910329b9ac337994)](https://www.codacy.com/app/cjpatoilo/bowerless?utm_source=github.com&utm_medium=referral&utm_content=cjpatoilo/bowerless&utm_campaign=badger)
 [![Travis Status](https://travis-ci.org/cjpatoilo/bowerless.svg?branch=master)](https://travis-ci.org/cjpatoilo/bowerless?branch=master)
 [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/cw249ount3qs2hou?svg=true)](https://ci.appveyor.com/project/cjpatoilo/bowerless)
 [![Codacy Status](https://img.shields.io/codacy/grade/e9961d836078409c910329b9ac337994/master.svg)](https://www.codacy.com/app/cjpatoilo/bowerless/dashboard)

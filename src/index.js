@@ -27,14 +27,26 @@ function bowerless (argv) {
 	if (fs.existsSync(`${directory}/bundle.min.js`)) fs.unlinkSync(`${directory}/bundle.min.js`)
 	if (fs.existsSync(`${directory}/bundle.min.css`)) fs.unlinkSync(`${directory}/bundle.min.css`)
 
+	const max = getDirectories(`${cache}/node_modules`).length
+	let count = 1
+	let cssBundle = []
+	let jsBundle = []
+
 	if (!fs.existsSync(directory)) mkdirp.sync(directory)
 	globbies(path.resolve(`${cache}/node_modules/**/package.json`), file => {
 		let main = `${path.dirname(file)}/${require(file).main}`
-		let bundle = `${directory}/bundle.min${path.extname(main)}`
-
-		if (fs.existsSync(bundle)) concat([bundle, main], bundle)
-		else concat([main], bundle)
+		if (path.extname(main) === '.css') cssBundle.push(main)
+		if (path.extname(main) === '.js') jsBundle.push(main)
+		if (max === count++) {
+			concat(cssBundle, `${directory}/bundle.min.css`)
+			concat(jsBundle, `${directory}/bundle.min.js`)
+		}
 	})
+
+}
+
+function getDirectories (srcpath) {
+	return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
 }
 
 module.exports = bowerless

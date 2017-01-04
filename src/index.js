@@ -42,7 +42,6 @@ function bowerless (argv) {
 			concat(jsBundle, `${directory}/bundle.min.js`)
 		}
 	})
-
 }
 
 function getDirectories (srcpath) {

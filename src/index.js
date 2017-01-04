@@ -10,7 +10,7 @@ const cache = path.resolve(__dirname, '../.cache')
 const dirname = path.resolve(__dirname, '../../..')
 const pkg = require(`${dirname}/package.json`)
 
-if (!pkg || !pkg.dependencies) {
+if (!pkg || !pkg.dependencies || !Object.keys(pkg.dependencies).length) {
 	console.error('[error] Sorry, this script requires dependencies from your package.json')
 	process.exit(1)
 }

@@ -4,7 +4,7 @@ $ bowerless --help
 
   Usage:
 
-    $ bowerless <directory> [<options>]
+    $ bowerless <output> <filename> [<options>]
 
   Options:
 
@@ -14,7 +14,7 @@ $ bowerless --help
   Examples:
 
     $ bowerless
-    $ bowerless dist/lib
+    $ bowerless dist vendors
 `
 
 function help () {

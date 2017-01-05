@@ -9,6 +9,9 @@
 	"bin": "bin/cli.js",
 	"files": [
 		"bin/cli.js",
+		"src/create.js",
+		"src/exists.js",
+		"src/generate.js",
 		"src/help.js",
 		"src/index.js",
 		"src/version.js"
@@ -49,10 +52,10 @@
 		".travis.yml"
 	],
 	"dependencies": {
-		"concat-files": "^0.1.1",
-		"globbies": "^0.0.3",
 		"mkdirp": "^0.5.1",
-		"shelljs": "^0.7.5"
+		"rimraf": "^2.5.4",
+		"uglify-js": "^2.7.5",
+		"uglifycss": "0.0.25"
 	},
 	"devDependencies": {
 		"ava": "^0.17.0",
@@ -66,7 +69,7 @@
 		"node": ">=4"
 	},
 	"scripts": {
-		"test": "nyc ava && eslint . -c styled --ignore-path .gitignore && editorconfig-tools check .",
-		"precommit": "npm t"
+		"precommit": "npm t",
+		"test": "nyc ava && eslint . -c styled --ignore-path .gitignore && editorconfig-tools check ."
 	}
 }

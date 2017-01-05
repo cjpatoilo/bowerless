@@ -43,7 +43,7 @@ $ bowerless --help
 
   Usage:
 
-    $ bowerless <directory> [<options>]
+    $ bowerless <output> <filename> [<options>]
 
   Options:
 
@@ -53,8 +53,7 @@ $ bowerless --help
   Examples:
 
     $ bowerless
-    $ bowerless dist/lib
-    $ bowerless dist/lib my-bundle-name
+    $ bowerless dist vendors
 ```
 
 

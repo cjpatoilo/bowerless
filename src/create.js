@@ -5,11 +5,18 @@ const rimraf = require('rimraf')
 const shelljs = require('shelljs')
 const exists = require('./exists')
 
-function cache (folder, pkg) {
-	if (fs.existsSync(folder)) rimraf.sync(folder)
-	exists.folder(folder)
-	fs.writeFileSync(`${folder}/package.json`, fs.readFileSync(pkg))
-	shelljs.exec(`cd ${folder} && npm i --prod --ignore-script`)
+function cache (source, pkg) {
+	return new Promise((resolve, reject) => {
+		try {
+			rimraf.sync(source)
+			exists.folder(source)
+			fs.writeFileSync(`${source}/package.json`, fs.readFileSync(pkg))
+			shelljs.exec(`cd ${source} && npm i --prod --ignore-script`)
+			resolve()
+		} catch (err) {
+			reject(err)
+		}
+	})
 }
 
 function files (source) {

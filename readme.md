@@ -32,7 +32,7 @@ $ npm install -g bowerless
 **Usage**
 
 ```
-$ bowerless dist/lib
+$ bowerless dist vendors
 ```
 
 

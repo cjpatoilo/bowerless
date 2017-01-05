@@ -12,12 +12,14 @@ function bowerless (argv) {
 	const source = path.resolve(__dirname, '../.cache')
 
 	exists.pkg(pkg)
-	create.cache(source, pkg)
-	exists.folder(folder)
-
-	const bundles = create.files(source)
-	generate.js(output, bundles.js)
-	generate.css(output, bundles.css)
+	create
+		.cache(source, pkg)
+		.then(() => {
+			const bundles = create.files(source)
+			exists.folder(folder)
+			generate.js(output, bundles.js)
+			generate.css(output, bundles.css)
+		})
 }
 
 module.exports = bowerless

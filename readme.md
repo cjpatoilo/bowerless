@@ -54,6 +54,7 @@ $ bowerless --help
 
     $ bowerless
     $ bowerless dist/lib
+    $ bowerless dist/lib my-bundle-name
 ```
 
 

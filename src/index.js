@@ -11,8 +11,8 @@ const dirname = path.resolve(__dirname, '../../..')
 const pkg = require(`${dirname}/package.json`)
 
 function bowerless (argv) {
-	const bundle = 'bundle.min'
 	const directory = argv[0] || dirname
+	const bundle = argv[1] || 'bundle.min'
 
 	createCache()
 

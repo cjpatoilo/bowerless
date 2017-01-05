@@ -1,5 +1,5 @@
-#!/usr/bin/env node
 'use strict'
+
 const fs = require('fs')
 const path = require('path')
 const shelljs = require('shelljs')
@@ -16,16 +16,13 @@ if (!pkg || !pkg.dependencies || !Object.keys(pkg.dependencies).length) {
 }
 
 function bowerless (argv) {
+	const bundle = 'bundle.min'
 	const directory = argv[0] || dirname
 
-	shelljs
-		.exec(`rm -rf node_modules/bowerless/.cache`)
-		.exec(`mkdir -p ${cache}`)
-		.exec(`cp -r package.json ${cache}/package.json`)
-		.exec(`cd ${cache} && npm i --prod --ignore-script`)
+	createCache()
 
-	if (fs.existsSync(`${directory}/bundle.min.js`)) fs.unlinkSync(`${directory}/bundle.min.js`)
-	if (fs.existsSync(`${directory}/bundle.min.css`)) fs.unlinkSync(`${directory}/bundle.min.css`)
+	if (fs.existsSync(`${directory}/${bundle}.js`)) fs.unlinkSync(`${directory}/${bundle}.js`)
+	if (fs.existsSync(`${directory}/${bundle}.css`)) fs.unlinkSync(`${directory}/${bundle}.css`)
 
 	const max = getDirectories(`${cache}/node_modules`).length
 	let count = 1
@@ -34,18 +31,26 @@ function bowerless (argv) {
 
 	if (!fs.existsSync(directory)) mkdirp.sync(directory)
 	globbies(path.resolve(`${cache}/node_modules/**/package.json`), file => {
-		let main = `${path.dirname(file)}/${require(file).main}`
+		const main = `${path.dirname(file)}/${require(file).main}`
 		if (path.extname(main) === '.css') cssBundle.push(main)
 		if (path.extname(main) === '.js') jsBundle.push(main)
 		if (max === count++) {
-			concat(cssBundle, `${directory}/bundle.min.css`)
-			concat(jsBundle, `${directory}/bundle.min.js`)
+			concat(cssBundle, `${directory}/${bundle}.css`)
+			concat(jsBundle, `${directory}/${bundle}.js`)
 		}
 	})
 }
 
 function getDirectories (srcpath) {
 	return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
+}
+
+function createCache () {
+	shelljs
+		.exec(`rm -rf node_modules/bowerless/.cache`)
+		.exec(`mkdir -p ${cache}`)
+		.exec(`cp -r package.json ${cache}/package.json`)
+		.exec(`cd ${cache} && npm i --prod --ignore-script`)
 }
 
 module.exports = bowerless

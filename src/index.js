@@ -10,11 +10,6 @@ const cache = path.resolve(__dirname, '../.cache')
 const dirname = path.resolve(__dirname, '../../..')
 const pkg = require(`${dirname}/package.json`)
 
-if (!pkg || !pkg.dependencies || !Object.keys(pkg.dependencies).length) {
-	console.error('[error] Sorry, this script requires dependencies from your package.json')
-	process.exit(1)
-}
-
 function bowerless (argv) {
 	const bundle = 'bundle.min'
 	const directory = argv[0] || dirname
@@ -45,6 +40,10 @@ function getDirectories (srcpath) {
 	return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
 }
 
+function hasDependencies () {
+	return (pkg && pkg.dependencies && Object.keys(pkg.dependencies).length)
+}
+
 function createCache () {
 	shelljs
 		.exec(`rm -rf node_modules/bowerless/.cache`)
@@ -54,3 +53,4 @@ function createCache () {
 }
 
 module.exports = bowerless
+module.exports.hasDependencies = hasDependencies

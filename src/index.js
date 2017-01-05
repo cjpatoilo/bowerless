@@ -5,11 +5,11 @@ const exists = require('./exists')
 const generate = require('./generate')
 
 function bowerless (argv) {
-	const folder = argv[0] || '../../../output'
 	const name = argv[1] || 'bundle.min'
+	const folder = path.resolve(argv[0]) || path.resolve('./')
 	const output = path.resolve(`${folder}/${name}`)
-	const pkg = path.resolve('../../../package.json')
-	const source = path.resolve('../.cache')
+	const pkg = path.resolve('./package.json')
+	const source = path.resolve(__dirname, '../.cache')
 
 	exists.pkg(pkg)
 	create.cache(source, pkg)

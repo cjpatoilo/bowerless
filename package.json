@@ -2,24 +2,22 @@
 	"name": "bowerless",
 	"version": "0.0.6",
 	"description": "Generate bundles from npm dependencies.",
-	"homepage": "http://cjpatoilo.com/bowerless",
+	"homepage": "https://cjpatoilo.com/bowerless",
 	"repository": "cjpatoilo/bowerless",
 	"license": "MIT",
 	"author": "CJ Patoilo <cjpatoilo@gmail.com>",
-	"bin": "bin/cli.js",
+	"bin": "cli.js",
 	"files": [
-		"bin/cli.js",
-		"src/create.js",
-		"src/exists.js",
-		"src/generate.js",
-		"src/help.js",
-		"src/index.js",
-		"src/version.js"
+		"cli.js",
+		"create.js",
+		"exists.js",
+		"generate.js",
+		"help.js",
+		"index.js",
+		"version.js"
 	],
 	"keywords": [
 		"🐥",
-		"-S",
-		"--save",
 		"asset",
 		"assets",
 		"automation",
@@ -45,6 +43,7 @@
 		"website"
 	],
 	"ignore": [
+		"artwork.psd",
 		".appveyor.yml",
 		".editorconfig",
 		".github",
@@ -53,22 +52,27 @@
 	],
 	"dependencies": {
 		"mkdirp": "^0.5.1",
+		"rasper": "latest",
 		"rimraf": "^2.5.4",
 		"uglify-js": "^2.7.5",
 		"uglifycss": "0.0.25"
 	},
 	"devDependencies": {
-		"ava": "^0.17.0",
+		"ava": "^0.25.0",
+		"boeing": "latest",
 		"editorconfig-tools": "^0.1.1",
-		"eslint": "^3.12.1",
-		"eslint-config-styled": "^0.0.0",
-		"husky": "^0.12.0",
-		"nyc": "^10.0.0"
+		"eslint": "^4.17.0",
+		"eslint-config-styled": "latest",
+		"husky": "^0.14.3",
+		"marshmallow": "latest",
+		"nyc": "^11.4.1",
+		"rimraf": "^2.6.2"
 	},
 	"engines": {
-		"node": ">=4"
+		"node": ">=6"
 	},
 	"scripts": {
+		"prepush": "marshmallow -o docs -i artwork.psd -f -m && boeing docs && rimraf docs",
 		"precommit": "npm t",
 		"test": "nyc ava && eslint . -c styled --ignore-path .gitignore && editorconfig-tools check ."
 	}

@@ -1,4 +1,4 @@
-# Bowerless
+<a align="center" href="https://github.com/cjpatoilo/bowerless"><img width="100%" src="https://cjpatoilo.com/bowerless/artwork.png" alt="Bowerless - Generate bundles from npm dependencies."></a>
 
 > Generate bundles from npm dependencies.
 
@@ -11,11 +11,11 @@
 [![Gitter Chat](https://img.shields.io/badge/gitter-join_the_chat-4cc61e.svg)](https://gitter.im/cjpatoilo/bowerless)
 
 
-## Why it's awesome?
+## Why it's awesome
 
 This library reads the package.json files for each of those dependencies. Based on these connections, it will generate a bundle of the master files.
 
-*NOTE: For now only works with JavaScript and CSS files.*
+*Note: For now only works with JavaScript and CSS files.*
 
 
 ## Getting Started
@@ -26,7 +26,7 @@ This library reads the package.json files for each of those dependencies. Based 
 $ npm install -g bowerless
 ```
 
-*NOTE: Install this npm package with `-g` to global use or with `-D` to add the package as a devDependency in the `package.json` file of your project.*
+*Note: Install this npm package with `-g` to global use or with `-D` to add the package as a devDependency in the `package.json` file of your project.*
 
 
 **Usage**
@@ -65,4 +65,4 @@ Want to contribute? Follow these [recommendations](https://github.com/cjpatoilo/
 
 ## License
 
-Designed with ♥ by [CJ Patoilo](http://twitter.com/cjpatoilo). Licensed under the [MIT License](http://cjpatoilo.mit-license.org).
+Designed with ♥ by [CJ Patoilo](https://twitter.com/cjpatoilo). Licensed under the [MIT License](license).

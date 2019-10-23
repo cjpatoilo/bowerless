@@ -1,4 +1,4 @@
-<a align="center" href="https://github.com/cjpatoilo/bowerless"><img width="100%" src="https://cjpatoilo.com/bowerless/artwork.png" alt="Bowerless - Generate bundles from npm dependencies."></a>
+<a href="https://github.com/cjpatoilo/bowerless"><img width="100%" src="https://cjpatoilo.com/bowerless/artwork.png" alt="Bowerless - Generate bundles from npm dependencies."></a>
 
 > Generate bundles from npm dependencies.
 
@@ -60,9 +60,9 @@ $ bowerless --help
 
 ## Contributing
 
-Want to contribute? Follow these [recommendations](https://github.com/cjpatoilo/bowerless/blob/master/.github/contributing.md).
+Want to contribute? Follow these [recommendations](https://github.com/cjpatoilo/bowerless#contributing).
 
 
 ## License
 
-Designed with ♥ by [CJ Patoilo](https://twitter.com/cjpatoilo). Licensed under the [MIT License](license).
+Designed with ♥ by [CJ Patoilo](https://twitter.com/cjpatoilo). Licensed under the [MIT License](https://github.com/cjpatoilo/bowerless#license).

@@ -1,6 +1,6 @@
 {
 	"name": "bowerless",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "Generate bundles from npm dependencies.",
 	"homepage": "https://cjpatoilo.com/bowerless",
 	"repository": "cjpatoilo/bowerless",
